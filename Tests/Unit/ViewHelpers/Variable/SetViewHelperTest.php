@@ -1,4 +1,5 @@
 <?php
+namespace FluidTYPO3\Vhs\ViewHelpers\Variable;
 /***************************************************************
  *  Copyright notice
  *
@@ -23,39 +24,31 @@
  *  This copyright notice MUST APPEAR in all copies of the script!
  * ************************************************************* */
 
+use FluidTYPO3\Vhs\ViewHelpers\AbstractViewHelperTest;
+
 /**
  * @protection off
  * @author Claus Due <claus@namelesscoder.net>
  * @package Vhs
  */
-class Tx_Vhs_ViewHelpers_Var_TyposcriptViewHelperTest extends Tx_Vhs_ViewHelpers_AbstractViewHelperTest {
+class SetViewHelperTest extends AbstractViewHelperTest {
 
 	/**
 	 * @test
 	 */
-	public function returnsNullIfPathIsNull() {
-		$this->assertNull($this->executeViewHelper(array('path' => NULL)));
+	public function canSetVariable() {
+		$variables = new \ArrayObject(array('test' => TRUE));
+		$this->executeViewHelper(array('name' => 'test', 'value' => FALSE), $variables);
+		$this->assertFalse($variables['test']);
 	}
 
 	/**
 	 * @test
 	 */
-	public function returnsArrayIfPathContainsArray() {
-		$this->assertThat($this->executeViewHelper(array('path' => 'config.tx_extbase.features')), new PHPUnit_Framework_Constraint_IsType(PHPUnit_Framework_Constraint_IsType::TYPE_ARRAY));
-	}
-
-	/**
-	 * @test
-	 */
-	public function canGetPathUsingArgument() {
-		$this->assertNotEmpty($this->executeViewHelper(array('path' => 'config.tx_extbase.features')));
-	}
-
-	/**
-	 * @test
-	 */
-	public function canGetPathUsingTagContent() {
-		$this->assertNotEmpty($this->executeViewHelperUsingTagContent('Text', 'config.tx_extbase.features'));
+	public function canSetVariableWithValueFromTagContent() {
+		$variables = new \ArrayObject(array('test' => TRUE));
+		$this->executeViewHelperUsingTagContent('Boolean', FALSE, array('name' => 'test'), $variables);
+		$this->assertFalse($variables['test']);
 	}
 
 }

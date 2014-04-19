@@ -34,15 +34,15 @@
 class Tx_Vhs_ViewHelpers_Page_InfoViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
 
 	/**
-	 * @var Tx_Vhs_Service_PageSelectService
+	 * @var \FluidTYPO3\Vhs\Service\PageSelectService
 	 */
 	protected $pageSelect;
 
 	/**
-	 * @param Tx_Vhs_Service_PageSelectService $pageSelect
+	 * @param \FluidTYPO3\Vhs\Service\PageSelectService $pageSelect
 	 * @return void
 	 */
-	public function injectPageSelectService(Tx_Vhs_Service_PageSelectService $pageSelect) {
+	public function injectPageSelectService(\FluidTYPO3\Vhs\Service\PageSelectService $pageSelect) {
 		$this->pageSelect = $pageSelect;
 	}
 
@@ -93,7 +93,7 @@ class Tx_Vhs_ViewHelpers_Page_InfoViewHelper extends \TYPO3\CMS\Fluid\Core\ViewH
 		}
 
 		$variables = array($as => $content);
-		$output = Tx_Vhs_Utility_ViewHelperUtility::renderChildrenWithVariables($this, $this->templateVariableContainer, $variables);
+		$output = \FluidTYPO3\Vhs\Utility\ViewHelperUtility::renderChildrenWithVariables($this, $this->templateVariableContainer, $variables);
 
 		return $output;
 	}

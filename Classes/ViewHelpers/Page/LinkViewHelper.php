@@ -44,15 +44,15 @@
 class Tx_Vhs_ViewHelpers_Page_LinkViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractTagBasedViewHelper {
 
 	/**
-	 * @var Tx_Vhs_Service_PageSelectService
+	 * @var \FluidTYPO3\Vhs\Service\PageSelectService
 	 */
 	protected $pageSelect;
 
 	/**
-	 * @param Tx_Vhs_Service_PageSelectService $pageSelect
+	 * @param \FluidTYPO3\Vhs\Service\PageSelectService $pageSelect
 	 * @return void
 	 */
-	public function injectPageSelectService(Tx_Vhs_Service_PageSelectService $pageSelect) {
+	public function injectPageSelectService(\FluidTYPO3\Vhs\Service\PageSelectService $pageSelect) {
 		$this->pageSelect = $pageSelect;
 	}
 
@@ -154,7 +154,7 @@ class Tx_Vhs_ViewHelpers_Page_LinkViewHelper extends \TYPO3\CMS\Fluid\Core\ViewH
 		}
 
 		// Render childs to see if an alternative title content should be used
-		$renderedTitle = Tx_Vhs_Utility_ViewHelperUtility::renderChildrenWithVariables($this, $this->templateVariableContainer, $variables);
+		$renderedTitle = \FluidTYPO3\Vhs\Utility\ViewHelperUtility::renderChildrenWithVariables($this, $this->templateVariableContainer, $variables);
 		if (FALSE === empty($renderedTitle)) {
 			$title = $renderedTitle;
 		}

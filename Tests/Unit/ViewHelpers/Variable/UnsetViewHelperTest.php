@@ -1,4 +1,5 @@
 <?php
+namespace FluidTYPO3\Vhs\ViewHelpers\Variable;
 /***************************************************************
  *  Copyright notice
  *
@@ -23,18 +24,20 @@
  *  This copyright notice MUST APPEAR in all copies of the script!
  * ************************************************************* */
 
+use FluidTYPO3\Vhs\ViewHelpers\AbstractViewHelperTest;
+
 /**
  * @protection off
  * @author Claus Due <claus@namelesscoder.net>
  * @package Vhs
  */
-class Tx_Vhs_ViewHelpers_Var_UnsetViewHelperTest extends Tx_Vhs_ViewHelpers_AbstractViewHelperTest {
+class UnsetViewHelperTest extends AbstractViewHelperTest {
 
 	/**
 	 * @test
 	 */
 	public function canUnsetVariable() {
-		$variables = new ArrayObject(array('test' => TRUE));
+		$variables = new \ArrayObject(array('test' => TRUE));
 		$this->executeViewHelper(array('name' => 'test'), $variables);
 		$this->assertNotContains('test', $variables);
 	}
