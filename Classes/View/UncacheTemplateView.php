@@ -24,6 +24,7 @@ namespace FluidTYPO3\Vhs\View;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use \TYPO3\CMS\Fluid\View\TemplateView;
 use \TYPO3\CMS\Fluid\Core\Rendering\RenderingContextInterface;
 use \TYPO3\CMS\Extbase\Mvc\Controller\ControllerContext;
 use \TYPO3\CMS\Fluid\Compatibility\TemplateParserBuilder;
@@ -35,9 +36,6 @@ use \TYPO3\CMS\Fluid\Compatibility\TemplateParserBuilder;
  * @package Vhs
  * @subpackage View
  */
-use \TYPO3\CMS\Fluid\View\TemplateView;
-use \TYPO3\CMS\Extbase\Mvc\Controller\ControllerContext;
-use  \TYPO3\CMS\Fluid\Compatibility\TemplateParserBuilder;
 
 class UncacheTemplateView extends TemplateView {
 
